@@ -10,20 +10,21 @@
 $(document).ready(function () {
 
 //display current date and time
-    var displayTime = document.querySelector("#currentDay");
+var displayTime = document.querySelector("#currentDay");
     
 //display time and date using dayjs
-    var currentTime = dayjs().format("dddd, MMMM D, YYYY, h:mm:ss a");
-    displayTime.textContent = currentTime;
+    
+var currentTime = dayjs().format("dddd, MMMM D, YYYY, h:mm:ss a");
+displayTime.textContent = currentTime;
 
 // adding button to save input in local storage when click event listener
-    $(".saveBtn").on("click", function () {
-        var text = $(this).siblings(".description").val();
-        var time = $(this).parent().attr("id");
+$(".saveBtn").on("click", function () {
+    var text = $(this).siblings(".description").val();
+    var time = $(this).parent().attr("id");
     
         
-        localStorage.setItem(time, text);
-    });
+    localStorage.setItem(time, text);
+});
 
     // current number of hours
     function hourTracker() {
@@ -33,7 +34,6 @@ $(document).ready(function () {
     $(".time-block").each(function () {
         var blockHour = parseInt($(this).attr("id").split("-")[1]);
     
-        // Check the time and add the classes for background indicators
         if (blockHour < currentHour) {
           $(this).addClass("past");
         } else if (blockHour === currentHour) {
@@ -45,3 +45,4 @@ $(document).ready(function () {
           $(this).addClass("future");
         }
       });
+}
