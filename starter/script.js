@@ -11,7 +11,7 @@ $(document).ready(function () {
 
 //display current date and time
     var displayTime = document.querySelector("#currentDay");
-    displayTime.textContent = currentTime;
+    
 //display time and date using dayjs
     var currentTime = dayjs().format("dddd, MMMM D, YYYY, h:mm:ss a");
     displayTime.textContent = currentTime;
@@ -24,3 +24,8 @@ $(document).ready(function () {
         
         localStorage.setItem(time, text);
     });
+
+    // current number of hours
+    function hourTracker() {
+        var currentHour = dayjs().hour();
+    };
